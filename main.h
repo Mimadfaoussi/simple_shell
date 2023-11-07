@@ -10,5 +10,6 @@
 
 int	_putchar(int c);
 int     _putstr(char *str);
+char    **ft_split(char const *str, char c);
 
 #endif

@@ -1,3 +1,5 @@
+#include "main.h"
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -103,3 +105,12 @@ char	**ft_split(char const *str, char c)
 	res[i] = NULL;
 	return (res);
 }
+/*
+int main(void)
+{
+	char **argv;
+	char *str = "/bin/ls -l /tmp/";
+	argv = ft_split(str, ' ');
+	printf("%s%s\n",argv[2],argv[3]);
+	return (0);
+}*/

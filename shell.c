@@ -46,7 +46,8 @@ int 	main(void)
 	int	keep;
 	pid_t	pid;
 	int	status;
-	char	*argv[] = {"/bin/ls", "-l", "/tmp/", NULL};
+	//char	*argv2[] = {"/bin/ls", "-l", "/tmp/", NULL};
+	char	**argv;
 
 	keep = 1;
 	while (keep == 1)
@@ -65,6 +66,9 @@ int 	main(void)
 			perror("Error");
 			return (1);
 		}
+		if (bytesRead > 0 && buffer[bytesRead - 1] == '\n')
+			buffer[bytesRead - 1] = '\0';
+		//_putstr(buffer);
 		pid = fork();
 		if (pid == -1)
 		{
@@ -74,6 +78,7 @@ int 	main(void)
 		if (pid == 0)
 		{
 			argv = ft_split(buffer, ' ');
+			//printf("%s\n",argv[3]);
 			if (execve(argv[0], argv, NULL) == -1)
 				perror("ERROR");
 			return (0);
