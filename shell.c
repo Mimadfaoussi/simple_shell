@@ -44,6 +44,9 @@ int 	main(void)
 	ssize_t	w;
 	size_t	n;
 	int	keep;
+	pid_t	pid;
+	int	status;
+	char	*argv[] = {"/bin/ls", "-l", "/tmp/", NULL};
 
 	keep = 1;
 	while (keep == 1)
@@ -62,7 +65,20 @@ int 	main(void)
 			perror("Error");
 			return (1);
 		}
-		_putstr(buffer);
+		pid = fork();
+		if (pid == -1)
+		{
+			perror("ERROR");
+			return (1);
+		}
+		if (pid == 0)
+		{
+			argv = ft_split(buffer, ' ');
+			if (execve(argv[0], argv, NULL) == -1)
+				perror("ERROR");
+			return (0);
+		}
+		wait(&status);
 		if (_strncmp(buffer, "exit()", 6) == 0)
 			keep = 0;
 		free(buffer);

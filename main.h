@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 
 int	_putchar(int c);
 int     _putstr(char *str);
