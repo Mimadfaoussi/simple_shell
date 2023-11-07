@@ -1,4 +1,4 @@
-size_t	_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -8,7 +8,7 @@ size_t	_strlen(const char *s)
 	return (i);
 }
 
-size_t	_strlcpy(char *dst, const char *src, size_t destsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t destsize)
 {
 	size_t	i;
 	size_t	src_length;
@@ -80,7 +80,7 @@ int	countwords(char const *str, char c)
 	return (count + 1);
 }
 
-char	**_split(char const *str, char c)
+char	**ft_split(char const *str, char c)
 {
 	int		i;
 	int		count;
