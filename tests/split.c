@@ -1,3 +1,6 @@
+#include "main.h"
+
+/*
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -7,7 +10,7 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
+*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t destsize)
 {
 	size_t	i;
