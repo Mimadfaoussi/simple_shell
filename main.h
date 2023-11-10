@@ -9,4 +9,8 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 
+void     _putchar(int c);
+void     _putstr(char *str);
+void    _error(void);
+
 #endif
