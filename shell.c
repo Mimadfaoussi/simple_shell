@@ -22,8 +22,9 @@ int main(void)
 		bytesRead = getline(&buffer, &n, stdin);
 		if (bytesRead == -1)
 		{
-			_error();
-			return (1);
+			_putstr("End of file (Ctrl+D) detected. Exiting.\n");
+			free(buffer);
+			return (0);
 		}
 		if (bytesRead > 0 && buffer[bytesRead - 1] == '\n')
 			buffer[bytesRead - 1] = '\0';
