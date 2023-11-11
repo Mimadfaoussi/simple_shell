@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
 	int	keep;
 	pid_t	pid;
@@ -11,8 +11,9 @@ int main(void)
 	//char	*list[] = {"/bin/ls", "-l", "/tmp/", NULL};
 	char	**list;
 
+	if (argc < 1)
+		return (1);
 	list = malloc(sizeof(char *) * 2);
-	list[1] = NULL;
 	keep = 1;
 	while (keep == 1)
 	{
@@ -28,7 +29,7 @@ int main(void)
 		}
 		if (bytesRead > 0 && buffer[bytesRead - 1] == '\n')
 			buffer[bytesRead - 1] = '\0';
-		list[0] = buffer;
+		list = ft_split((char const *)buffer, ' ');
 		if (ft_strncmp(buffer, "exit" , 4) == 0)
                 {
 			keep = 0;
@@ -45,7 +46,10 @@ int main(void)
 		if (pid == 0)
 		{
 			if (execve(list[0], list, NULL) == -1)
-				perror("_error");
+			{
+				_putstr(argv[0]);
+				_putstr(": No such file or directory\n");
+			}
 			return (0);
 		}
 		wait(&status);

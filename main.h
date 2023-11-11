@@ -14,4 +14,6 @@ void     _putstr(char *str);
 void    _error(void);
 size_t  ft_strlen(const char *s);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
+char    **ft_split(char const *str, char c);
+size_t  ft_strlcpy(char *dst, const char *src, size_t destsize);
 #endif
