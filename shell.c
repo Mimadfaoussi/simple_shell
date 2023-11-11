@@ -37,25 +37,31 @@ int main(int argc, char **argv)
 			free(list);
 			return (0);
 		}
-		pid = fork();
-		if (pid == -1)
+		if (find_file_path(list[0]) == NULL)
 		{
-			_error();
-			return (1);
+			_putstr(argv[0]);
+			_putstr(": No such file or directory\n");
 		}
-		if (pid == 0)
+		else
 		{
-			if (execve(list[0], list, NULL) == -1)
+			fullpath(list);
+			pid = fork();
+			if (pid == -1)
 			{
-				_putstr(argv[0]);
-				_putstr(": No such file or directory\n");
+				_error();
+				return (1);
 			}
-			return (0);
+			if (pid == 0)
+			{
+				if (execve(list[0], list, NULL) == -1)
+				{
+					_putstr(argv[0]);
+					_putstr(": No such file or directory\n");
+				}
+				return (0);
+			}
+			wait(&status);
 		}
-		wait(&status);
-		if (ft_strncmp(buffer, "exit" , 4) == 0)
-                        keep = 0;
-		free(buffer);
 	}
 	return (0);
 }
