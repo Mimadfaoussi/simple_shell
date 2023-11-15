@@ -8,7 +8,6 @@ int main(int argc, char **argv)
 	size_t	n;
 	ssize_t	bytesRead;
 	int	status;
-	//char	*list[] = {"/bin/ls", "-l", "/tmp/", NULL};
 	char	**list;
 
 	if (argc < 1)
