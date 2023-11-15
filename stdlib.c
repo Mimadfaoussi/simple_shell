@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * ft_strlen - get length of a string

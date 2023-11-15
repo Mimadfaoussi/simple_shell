@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * ft_strlcpy - function that copy string from source to dst

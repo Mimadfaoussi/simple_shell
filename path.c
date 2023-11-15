@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * ft_strdup - create a string duplicate.
