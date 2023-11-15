@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * ft_strdup - create a string duplicate.
+ * @str : string to create copy from
+ * Return: string copy.
+ */
+
 char	*ft_strdup(const char *str)
 {
 	char	*ptr;
@@ -21,17 +27,29 @@ char	*ft_strdup(const char *str)
 	return (ptr);
 }
 
-void _reset(char *fullpath)
-{
-        int     i;
+/**
+ * _reset - reset a string to '\0'
+ * @fullpath: string to reset.
+ * Return : void.
+ */
 
-        i = 0;
-        while (fullpath[i] != '\0')
-        {
-                fullpath[i] = '\0';
-                i++;
-        }
+void	_reset(char *fullpath)
+{
+	int     i;
+
+	i = 0;
+	while (fullpath[i] != '\0')
+	{
+		fullpath[i] = '\0';
+		i++;
+	}
 }
+
+/**
+ * find_file_path - return full path of a file.
+ * @filename : name of fiel to search for.
+ * Return:full path string.
+ */
 
 char	*find_file_path(char	*filename)
 {
@@ -69,6 +87,12 @@ char	*find_file_path(char	*filename)
 		return (fullpath);
 	return (NULL);
 }
+/**
+ * fullpath - replacing the first element with program name only.
+ * @list:list to change the first par for exceve.
+ * Return : void.
+ */
+
 void	fullpath(char **list)
 {
 	char	*str;
@@ -80,11 +104,4 @@ void	fullpath(char **list)
 		list[0] = find_file_path(str);
 	}
 }
-/*
-int main(void)
-{
-	char	*s;
-	s = find_file_path("/bin/ls");
-	printf("file path : %s \n",s);
-	return (0);
-}*/
+
