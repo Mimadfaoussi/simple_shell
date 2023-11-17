@@ -1,5 +1,10 @@
 {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.configPath": "${workspaceFolder}/.prettierrc",
     "prettier.enableDebugLogs": true,
     "prettier.bracketSameLine": true,
-    "prettier.insertPragma": false
+    "prettier.insertPragma": false,
+    "prettier.trailingComma": "all",
+    "prettier.tabWidth": 4,
 }
