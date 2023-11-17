@@ -1,17 +1,16 @@
 #include "shell.h"
 
 /**
- * ft_strlcpy - function that copy string from source to dst
- * @dst:destination
- * @src : source
- * @destsize:destination size
- * Return: nb of copied chars.
+ * ft_strlcpy - Copies a string from source to destination.
+ * @dst: Destination.
+ * @src: Source.
+ * @destsize: Destination size.
+ * Return: Number of copied characters.
  */
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t destsize)
+size_t ft_strlcpy(char *dst, const char *src, size_t destsize)
 {
-	size_t	i;
-	size_t	src_length;
+	size_t i;
+	size_t src_length;
 
 	src_length = ft_strlen(src);
 	if (!src || !dst)
@@ -30,18 +29,17 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t destsize)
 }
 
 /**
- * put - function that create a string for split.
- * @str:string to work on.
- * @index:where to start.
- * @c: delimiter char.
- * Return: created string.
+ * put - Creates a string for split.
+ * @str: String to work on.
+ * @index: Where to start.
+ * @c: Delimiter character.
+ * Return: Created string.
  */
-
-char    *put(char const *str, int *index, char c)
+char *put(char const *str, int *index, char c)
 {
-	int             i;
-	int             length;
-	char    *result;
+	int i;
+	int length;
+	char *result;
 
 	i = *index;
 	length = 0;
@@ -63,17 +61,16 @@ char    *put(char const *str, int *index, char c)
 }
 
 /**
- * countwords - counts nb of words separated by delimiter char c
- * @str: string to count words from.
- * @c:delimiter.
- * Return:nb of words separated by c + NULL
+ * countwords - Counts the number of words separated by delimiter character c.
+ * @str: String to count words from.
+ * @c: Delimiter.
+ * Return: Number of words separated by c + NULL.
  */
-
-int     countwords(char const *str, char c)
+int countwords(char const *str, char c)
 {
-	int     i;
-	int     count;
-	int     trigger;
+	int i;
+	int count;
+	int trigger;
 
 	trigger = 0;
 	i = 0;
@@ -89,25 +86,24 @@ int     countwords(char const *str, char c)
 			}
 		}
 		else if (trigger == 1)
-		trigger = 0;
+			trigger = 0;
 		i++;
 	}
 	return (count + 1);
 }
 
 /**
- * ft_split - function that create sub strings from string str separated by c
- * @str : the string
- * @c: delimiter char.
- * Return:tab of strings.
+ * ft_split - Creates substrings from a string separated by c.
+ * @str: The string.
+ * @c: Delimiter character.
+ * Return: Array of strings.
  */
-
-char    **ft_split(char const *str, char c)
+char **ft_split(char const *str, char c)
 {
-	int             i;
-	int             count;
-	char    **res;
-	int             index;
+	int i;
+	int count;
+	char **res;
+	int index;
 
 	if (str == NULL)
 		return (NULL);
@@ -125,4 +121,3 @@ char    **ft_split(char const *str, char c)
 	res[i] = NULL;
 	return (res);
 }
-

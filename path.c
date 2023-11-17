@@ -1,15 +1,14 @@
 #include "shell.h"
 
 /**
- * ft_strdup - create a string duplicate.
- * @str : string to create copy from
- * Return: string copy.
+ * ft_strdup - Create a string duplicate.
+ * @str: String to create a copy from.
+ * Return: String copy.
  */
-
-char	*ft_strdup(const char *str)
+char *ft_strdup(const char *str)
 {
-	char	*ptr;
-	int		i;
+	char *ptr;
+	int i;
 
 	i = 0;
 	while (str[i])
@@ -28,14 +27,13 @@ char	*ft_strdup(const char *str)
 }
 
 /**
- * _reset - reset a string to '\0'
- * @fullpath: string to reset.
- * Return : void.
+ * _reset - Reset a string to '\0'.
+ * @fullpath: String to reset.
+ * Return: Void.
  */
-
-void	_reset(char *fullpath)
+void _reset(char *fullpath)
 {
-	int     i;
+	int i;
 
 	i = 0;
 	while (fullpath[i] != '\0')
@@ -46,19 +44,18 @@ void	_reset(char *fullpath)
 }
 
 /**
- * find_file_path - return full path of a file.
- * @filename : name of fiel to search for.
- * Return:full path string.
+ * find_file_path - Return the full path of a file.
+ * @filename: Name of file to search for.
+ * Return: Full path string.
  */
-
-char	*find_file_path(char	*filename)
+char *find_file_path(char *filename)
 {
-	char	*path;
-	char	**tokens;
-	int	found;
-	char	*fullpath;
-	int	i;
-	int	size;
+	char *path;
+	char **tokens;
+	int found;
+	char *fullpath;
+	int i;
+	int size;
 
 	i = 0;
 	size = 0;
@@ -87,15 +84,15 @@ char	*find_file_path(char	*filename)
 		return (fullpath);
 	return (NULL);
 }
-/**
- * fullpath - replacing the first element with program name only.
- * @list:list to change the first par for exceve.
- * Return : void.
- */
 
-void	fullpath(char **list)
+/**
+ * fullpath - Replacing the first element with the program name only.
+ * @list: List to change the first parameter for execve.
+ * Return: Void.
+ */
+void fullpath(char **list)
 {
-	char	*str;
+	char *str;
 
 	str = ft_strdup(list[0]);
 	if (find_file_path(list[0]) != NULL)
@@ -104,4 +101,3 @@ void	fullpath(char **list)
 		list[0] = find_file_path(str);
 	}
 }
-

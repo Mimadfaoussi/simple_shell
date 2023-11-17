@@ -2,13 +2,13 @@
 
 int main(int argc, char **argv)
 {
-	int	keep;
-	pid_t	pid;
-	char	*buffer;
-	size_t	n;
-	ssize_t	bytesRead;
-	int	status;
-	char	**list;
+	int keep;
+	pid_t pid;
+	char *buffer;
+	size_t n;
+	ssize_t bytesRead;
+	int status;
+	char **list;
 
 	if (argc < 1)
 		return (1);
@@ -31,8 +31,8 @@ int main(int argc, char **argv)
 		if (*buffer == '\0' || buffer == NULL || ft_strlen(buffer) == 0)
 			continue;
 		list = ft_split((char const *)buffer, ' ');
-		if (ft_strncmp(buffer, "exit" , 4) == 0)
-                {
+		if (ft_strncmp(buffer, "exit", 4) == 0)
+		{
 			keep = 0;
 			free(buffer);
 			free(list);
