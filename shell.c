@@ -29,6 +29,7 @@ int main(int argc, char **argv)
 		if (bytesRead > 0 && buffer[bytesRead - 1] == '\n')
 			buffer[bytesRead - 1] = '\0';
 		if (*buffer == '\0' || buffer == NULL || ft_strlen(buffer) == 0)
+
 			continue;
 		list = ft_split((char const *)buffer, ' ');
 		if (ft_strncmp(buffer, "exit", 4) == 0)
@@ -38,6 +39,7 @@ int main(int argc, char **argv)
 			free(list);
 			return (0);
 		}
+
 		if (find_file_path(list[0]) == NULL)
 		{
 			_putstr(argv[0]);
