@@ -1,51 +1,46 @@
-using System;
-
-namespace BeautifulCode
+/**
+ * This function computes the Least Common Multiple (LCM) of three numbers.
+ *
+ * @param {number} num1 - The first number.
+ * @param {number} num2 - The second number.
+ * @param {number} num3 - The third number.
+ * @returns {number} The LCM of the three numbers.
+ */
+function computeLCM(num1, num2, num3)
 {
-    // <summary>
-    // This class contains a function that satisfies the user's request to write beautiful code
-    // that passes the Betty checks.
-    // </summary>
-public
-    class CodeGenerator
+    // Find the maximum number among the three
+    let maxNum = Math.max(num1, num2, num3);
+
+    // Start with the maximum number and check if it is divisible by all three numbers
+    for (let lcm = maxNum;; lcm += maxNum)
     {
-        // <summary>
-        // This function generates a beautiful code that passes the Betty checks.
-        //
-        // Returns:
-        // - A string containing the beautiful code.
-        // </summary>
-    public
-        static string GenerateBeautifulCode()
+        if (lcm % num1 == = 0 &&lcm % num2 == = 0 &&lcm % num3 == = 0)
         {
-            // Start with a beautiful comment.
-            string beautifulCode = "// This is a beautiful code that passes the Betty checks.\n\n";
-
-            // Add some beautiful code.
-            beautifulCode += "public class BeautifulClass\n";
-            beautifulCode += "{\n";
-            beautifulCode += "    public void BeautifulMethod()\n";
-            beautifulCode += "    {\n";
-            beautifulCode += "        // Beautiful code goes here.\n";
-            beautifulCode += "        int beautifulVariable = 42;\n";
-            beautifulCode += "        Console.WriteLine(\"The value of beautifulVariable is: \" + beautifulVariable);\n";
-            beautifulCode += "    }\n";
-            beautifulCode += "}\n";
-
-            return beautifulCode;
+            return lcm;
         }
     }
 }
 
-// Example program for CodeGenerator class.
-
-public
-class Program
+/**
+ * This function evaluates a polynomial for a given value of x.
+ *
+ * @param {number} a - Coefficient for x^2.
+ * @param {number} b - Coefficient for x.
+ * @param {number} c - Constant coefficient.
+ * @param {number} x - The value for which the polynomial should be evaluated.
+ * @returns {number} The result of the polynomial evaluation.
+ */
+function evaluatePolynomial(a, b, c, x)
 {
-public
-    static void Main()
-    {
-        string beautifulCode = CodeGenerator.GenerateBeautifulCode();
-        Console.WriteLine(beautifulCode);
-    }
+    return a * x * x + b * x + c;
 }
+
+// Usage Examples
+
+// Example 1: Computing LCM
+const lcm = computeLCM(2, 4, 6);
+console.log(`The LCM of 2, 4, and6 is : $ { lcm }`);
+
+// Example 2: Evaluating Polynomial
+const result = evaluatePolynomial(1, 2, 3, 2);
+console.log(`The polynomial evaluates to ${result} when x = 2`);
