@@ -12,5 +12,12 @@
 char    **ft_split(char const *str, char c);
 char    *ft_strjoin(char const *s1, char const *s2);
 char	*_getenv(const char *name);
-int _strlen(char *str);
+int	_strlen(char *str);
+
+
+typedef struct s_list {
+	char		*text;
+	struct s_list	*next;
+}		t_list;
+
 #endif
